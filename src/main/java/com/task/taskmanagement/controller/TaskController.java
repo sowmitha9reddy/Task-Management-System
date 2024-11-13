@@ -63,18 +63,18 @@ public class TaskController {
 
     }
 
-    @GetMapping("/status/{status}")
-    public List<TaskDto> filterByStatus(@PathVariable Task.Status status) {
-        return taskDaoService.filterByStatus(status);
-    }
+   @GetMapping("/filter/status/{status}")
+public List<TaskDto> filterByStatus(@PathVariable Task.Status status) {
+    return taskDaoService.filterByStatus(status);
+}
 
 
-    @GetMapping("/priority/{priority}")
+    @GetMapping("/filter/tasks/priority/{priority}")
     public List<TaskDto> filterByPriority(@PathVariable Task.Priority priority){
         return taskDaoService.filterByPriority(priority);
     }
 
-    @GetMapping("/category/{categoryId}")
+    @GetMapping("/filter/tasks/by/category/{categoryId}")
     public List<TaskDto> filterByCategory(@PathVariable long categoryId){
         return taskDaoService.filterByCategory(categoryId);
     }
