@@ -39,8 +39,8 @@ public class TaskController {
         return taskDaoService.getTaskById(id);
     }
 
-    @GetMapping("/")
-    public List<TaskDto> getCategory(){
+    @GetMapping("/allTasks")
+    public List<TaskDto> getAllTasks(){
         return  taskDaoService.getAllTasks();
     }
 
