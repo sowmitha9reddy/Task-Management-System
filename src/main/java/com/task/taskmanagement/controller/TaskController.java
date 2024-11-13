@@ -57,7 +57,7 @@ public class TaskController {
     }
 
 
-    @PostMapping("/{taskId}/{status}")
+    @PostMapping("/task/by/ID/updateStatus/{taskId}/status/{status}")
     public TaskDto updateStatus(@PathVariable Long taskId,@PathVariable Task.Status status){
        return taskDaoService.updateStatus(taskId,status);
 
