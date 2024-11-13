@@ -19,7 +19,7 @@ public class TaskController {
     @Autowired
     private TaskDaoService taskDaoService;
 
-    @GetMapping("/home")
+    @GetMapping("/homes")
     public String getHome(){
         return "Hello Sowmitha ,hii";
     }
