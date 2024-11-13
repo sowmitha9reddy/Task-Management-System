@@ -29,7 +29,7 @@ public class TaskController {
     }
 
 
-    @PostMapping("/{id}")
+    @PostMapping("/updateTask/{id}")
     public TaskDto updateTask(@PathVariable long id, @RequestBody TaskDto taskDto){
         return taskDaoService.updateTaskDetails(id,taskDto);
     }
