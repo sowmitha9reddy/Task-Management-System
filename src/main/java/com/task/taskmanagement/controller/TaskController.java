@@ -18,29 +18,25 @@ public class TaskController {
 
     @Autowired
     private TaskDaoService taskDaoService;
-
-    @GetMapping("/homes")
-    public String getHome(){
-        return "Hello Sowmitha ,hii";
-    }
+    
     @PostMapping("/addTask")
     public TaskDto addTask(@RequestBody TaskDto taskDto) {
           return taskDaoService.addTask(taskDto);
     }
 
 
-    @PostMapping("/updateTask/{id}")
+    @PostMapping("/{id}")
     public TaskDto updateTask(@PathVariable long id, @RequestBody TaskDto taskDto){
         return taskDaoService.updateTaskDetails(id,taskDto);
     }
 
-    @GetMapping("/task/{id}")
+    @GetMapping("/{id}")
     public TaskDto getTask(@PathVariable long id){
         return taskDaoService.getTaskById(id);
     }
 
-    @GetMapping("/allTasks")
-    public List<TaskDto> getAllTasks(){
+    @GetMapping("/")
+    public List<TaskDto> getCategory(){
         return  taskDaoService.getAllTasks();
     }
 
@@ -57,27 +53,29 @@ public class TaskController {
     }
 
 
-    @PostMapping("/task/by/ID/updateStatus/{taskId}/status/{status}")
+    @PostMapping("/{taskId}/{status}")
     public TaskDto updateStatus(@PathVariable Long taskId,@PathVariable Task.Status status){
        return taskDaoService.updateStatus(taskId,status);
 
     }
 
-   @GetMapping("/filter/status/{status}")
-public List<TaskDto> filterByStatus(@PathVariable Task.Status status) {
-    return taskDaoService.filterByStatus(status);
-}
+    @GetMapping("/{status}")
+    public List<TaskDto> filterByStatus(@PathVariable Task.Status status) {
+        return taskDaoService.filterByStatus(status);
+    }
 
 
-    @GetMapping("/filter/tasks/priority/{priority}")
+    @GetMapping("/{priority}")
     public List<TaskDto> filterByPriority(@PathVariable Task.Priority priority){
         return taskDaoService.filterByPriority(priority);
     }
 
-    @GetMapping("/filter/tasks/by/category/{categoryId}")
+    @GetMapping("/{categoryId}")
     public List<TaskDto> filterByCategory(@PathVariable long categoryId){
         return taskDaoService.filterByCategory(categoryId);
     }
+
+
 
 
 
