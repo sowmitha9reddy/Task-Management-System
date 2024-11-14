@@ -30,11 +30,10 @@ public class TaskController {
         return taskDaoService.updateTaskDetails(id,taskDto);
     }
 
-    @GetMapping("/getTask/{id}")
+   @GetMapping("/getTask/{id}")
     public TaskDto getTask(@PathVariable long id){
         return taskDaoService.getTaskById(id);
     }
-
     @GetMapping("/")
     public List<TaskDto> getCategory(){
         return  taskDaoService.getAllTasks();
