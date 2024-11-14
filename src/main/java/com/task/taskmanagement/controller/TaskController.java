@@ -18,6 +18,12 @@ public class TaskController {
 
     @Autowired
     private TaskDaoService taskDaoService;
+
+
+  @GetMapping("/home/Directory")
+    public String home(){
+        return "Welcome to task Management";
+    }
     
     @PostMapping("/addTask")
     public TaskDto addTask(@RequestBody TaskDto taskDto) {
